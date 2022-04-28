@@ -3,32 +3,34 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokedexFactoryTest {
 
-//    private Pokemon pok1;
-//    private Pokemon pok2;
-//
-//    IPokemonFactory iPokemonFactory = mock(IPokemonFactory.class);
-//
-//    @Before
-//    public void setUp() throws PokedexException {
-//        pok1 = new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56);
-//        pok2 = new Pokemon(133,"Aquali",186,168,260,2729,202,50000,4,100);
-//
-//        when(iPokemonFactory.createPokemon(0,613,64,4000,4)).thenReturn(pok1);
-//        when(iPokemonFactory.createPokemon(133,2729,202,50000,4)).thenReturn(pok2);
-//    }
-//
-//    @Test
-//    public void createPokemonTest() throws PokedexException {
-//
-//        assertEquals(pok1,iPokemonFactory.createPokemon(0,613,64,4000,4));
-//        assertEquals(pok2,iPokemonFactory.createPokemon(133,2729,202,50000,4));
-//
-//    }
+    IPokemonFactory iPokemonFactory = mock(IPokemonFactory.class);
+    IPokedexFactory iPokedexFactory = mock(IPokedexFactory.class);
+    IPokemonMetadataProvider iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+    IPokedex iPokedex = mock(IPokedex.class);
+
+
+    @Before
+    public void setUp() throws PokedexException {
+        when(iPokedexFactory.createPokedex(iPokemonMetadataProvider,iPokemonFactory)).thenReturn(iPokedex);
+        when(iPokedex.size()).thenReturn(0);
+    }
+
+    @Test
+    public void createPokemonTest() throws PokedexException {
+
+        assertEquals(iPokedexFactory.createPokedex(iPokemonMetadataProvider,iPokemonFactory),iPokedex);
+        assertEquals(iPokedex.size(),0);
+
+    }
 
 }
