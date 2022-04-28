@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -29,6 +30,7 @@ public class IPokedexFactoryTest {
     public void createPokemonTest() throws PokedexException {
 
         assertEquals(iPokedexFactory.createPokedex(iPokemonMetadataProvider,iPokemonFactory),iPokedex);
+        assertNotEquals(iPokedexFactory.createPokedex(iPokemonMetadataProvider,iPokemonFactory),null);
         assertEquals(iPokedex.size(),0);
 
     }

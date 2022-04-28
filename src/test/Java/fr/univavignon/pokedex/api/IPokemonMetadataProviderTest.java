@@ -15,8 +15,6 @@ public class IPokemonMetadataProviderTest {
 
     IPokemonMetadataProvider iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
 
-
-
     @Before
     public void setUp() throws PokedexException {
         pok1 = new PokemonMetadata(5,"roucoul",120,60,150);
@@ -32,7 +30,6 @@ public class IPokemonMetadataProviderTest {
 
         assertEquals(pok1,iPokemonMetadataProvider.getPokemonMetadata(5));
         assertEquals(pok2,iPokemonMetadataProvider.getPokemonMetadata(0));
-        //iPokemonMetadataProvider.getPokemonMetadata(45);
 
         Exception exception = assertThrows(PokedexException.class, () -> {
             iPokemonMetadataProvider.getPokemonMetadata(-1);
