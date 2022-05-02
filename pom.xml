@@ -33,6 +33,7 @@
     <build>
         <testSourceDirectory>src/test/Java</testSourceDirectory>
         <defaultGoal>test</defaultGoal>
+
     </build>
 
 </project>

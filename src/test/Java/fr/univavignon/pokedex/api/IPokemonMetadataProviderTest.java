@@ -23,6 +23,7 @@ public class IPokemonMetadataProviderTest {
         when(iPokemonMetadataProvider.getPokemonMetadata(5)).thenReturn(pok1);
         when(iPokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(pok2);
         when(iPokemonMetadataProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException("pokemon non existant"));
+        when(iPokemonMetadataProvider.getPokemonMetadata(151)).thenThrow(new PokedexException("index trops grand"));
     }
 
     @Test
@@ -35,6 +36,10 @@ public class IPokemonMetadataProviderTest {
             iPokemonMetadataProvider.getPokemonMetadata(-1);
         });
         assertTrue(exception.getMessage().contains("pokemon non existant"));
+        exception = assertThrows(PokedexException.class, () -> {
+            iPokemonMetadataProvider.getPokemonMetadata(151);
+        });
+        assertTrue(exception.getMessage().contains("index trops grand"));
 
     }
 

@@ -55,6 +55,7 @@ public class IPokedexTest {
         when(iPokedex.getPokemon(1)).thenReturn(pok1);
         when(iPokedex.getPokemon(0)).thenReturn(pok2);
         when(iPokedex.getPokemon(-1)).thenThrow(new PokedexException("Aucun pokemon avec cette id"));
+        when(iPokedex.getPokemon(151)).thenThrow(new PokedexException("Taille pokedex dépaser"));
 
         when(iPokedex.getPokemons()).thenReturn(pokemonList);
 
@@ -78,6 +79,7 @@ public class IPokedexTest {
 
         pokemonList.add(pok2);
         when(iPokedex.size()).thenReturn(pokemonList.size());
+
         assertEquals(iPokedex.size(),1);
     }
 
@@ -88,6 +90,10 @@ public class IPokedexTest {
             iPokedex.getPokemon(-1);
         });
         assertTrue(exception.getMessage().contains("Aucun pokemon avec cette id"));
+        exception = assertThrows(PokedexException.class, () -> {
+            iPokedex.getPokemon(151);
+        });
+        assertTrue(exception.getMessage().contains("Taille pokedex dépaser"));
 
     }
 
