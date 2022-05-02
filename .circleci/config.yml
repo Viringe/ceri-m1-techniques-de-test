@@ -29,7 +29,7 @@ jobs:
           name: Test
           command: mvn test
       - codecov/upload:
-          file: /target
+          file: /target/site/jacoco/jacoco.xml
       #- bash <(curl -s https://codecov.io/bash)
           
 
