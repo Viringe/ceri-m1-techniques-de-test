@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class IPokemonMetadataProviderImpl implements IPokemonMetadataProvider {
 
-    private static Vector<PokemonMetadata> pokemonMetadata = new Vector<PokemonMetadata>();
+    public static Vector<PokemonMetadata> pokemonMetadata = new Vector<PokemonMetadata>();
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
