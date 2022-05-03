@@ -32,7 +32,7 @@ public class IPokemonFactoryTest {
           Pokemon pok = iPokemonFactory.createPokemon(0,613,64,4000,4);
 
           assertEquals(pok1.getIndex(),pok.getIndex());
-          assertEquals(pok1.getName(),pok1.getName());
+          assertEquals(pok1.getName(),pok.getName());
           assertEquals(pok1.getAttack(),pok.getAttack());
           assertEquals(pok1.getDefense(),pok.getDefense());
           assertEquals(pok1.getStamina(),pok.getStamina());
@@ -40,7 +40,7 @@ public class IPokemonFactoryTest {
           assertEquals(pok1.getHp(),pok.getHp());
           assertEquals(pok1.getDust(),pok.getDust());
           assertEquals(pok1.getCandy(),pok.getCandy());
-          //assertEquals(pok1.getIv(),pok.getIv(),0);
+          assertTrue(0 <= pok.getIv() && pok.getIv() <= 100);
 
      }
 }
