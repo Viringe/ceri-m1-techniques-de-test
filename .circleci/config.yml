@@ -53,7 +53,7 @@ jobs:
           command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs #/src\main\java\fr\univavignon\pokedex\api
       - persist_to_workspace:
           root: docs/
-          paths: html
+          paths: docs/
       
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
