@@ -40,7 +40,13 @@ jobs:
       - checkout
       # Use mvn clean and package as the standard maven build phase
       - run:
-          name: install
+          name: install1
+          command: sudo add-apt-repository ppa:openjdk-r/ppa
+      - run:
+          name: install2
+          command: sudo apt-get update
+      - run:
+          name: install3
           command: sudo apt-get install openjdk-11-jdk-headless -y
       - run:
           name: Build-docs 
