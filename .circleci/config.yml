@@ -40,11 +40,8 @@ jobs:
       - checkout
       # Use mvn clean and package as the standard maven build phase
       - run:
-          name: Install dependencies
-          command: conda install -c cyclus java-jdk
-      - run:
           name: Build-docs 
-          command: javadoc -d /docs /src/main/java/fr/univeavignon/pokedex/api/*.java #/src\main\java\fr\univavignon\pokedex\api
+          command: cd docs/ && make html #/src\main\java\fr\univavignon\pokedex\api
       
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
