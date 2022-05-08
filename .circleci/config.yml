@@ -40,9 +40,9 @@ jobs:
       - checkout
       # Use mvn clean and package as the standard maven build phase
       - run:
-          name: Build-docs
-          command: cd docs/ && make html
-
+          name: Build-docs 
+          command: javadoc /src/main/java/fr/univeavignon/pokedex/api/*.java #/src\main\java\fr\univavignon\pokedex\api
+      
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -53,4 +53,7 @@ workflows:
             filters:
               branches:
                 only: master
-
+        - docs:
+            filters:
+              branches:
+                only: master
