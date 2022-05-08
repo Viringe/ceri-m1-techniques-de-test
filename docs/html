@@ -1,0 +1,1 @@
+javadoc -d /docs /src/main/java/fr/univeavignon/pokedex/api/*.java
