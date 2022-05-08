@@ -52,7 +52,7 @@ jobs:
           name: Build-docs 
           command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs #/src\main\java\fr\univavignon\pokedex\api
       - persist_to_workspace:
-          root: /
+          root: .
           paths: docs
       
 # Invoke jobs via workflows
