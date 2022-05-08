@@ -54,7 +54,23 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: docs
-      
+
+  docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: docs
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@klukas.net"
+            git config user.name "ci-build"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dist docs      
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -66,6 +82,15 @@ workflows:
               branches:
                 only: master
         - docs:
+            requires:
+              - build-and-test
+            filters:
+              branches:
+                only: master
+        - docs-deploy:
+            requires:
+              - build-and-test
+              - docs
             filters:
               branches:
                 only: master
