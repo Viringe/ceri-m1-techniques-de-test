@@ -34,11 +34,14 @@ jobs:
 
   docs:
     docker:
-      - image: cimg/openjdk:11.0
+      - image: cimg/openjdk:11.0-jdk-headless
     steps:
       # Checkout the code as the first step.
       - checkout
       # Use mvn clean and package as the standard maven build phase
+      - run:
+          name: install
+          command: apt-get install openjdk-11-jdk-headless
       - run:
           name: Build-docs 
           command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs #/src\main\java\fr\univavignon\pokedex\api
