@@ -34,7 +34,7 @@ jobs:
 
   docs:
     docker:
-      - image: cimg/openjdk:11.0-jdk-headless
+      - image: cimg/openjdk:11.0-headless
     steps:
       # Checkout the code as the first step.
       - checkout
