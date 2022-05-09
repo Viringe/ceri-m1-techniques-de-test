@@ -14,7 +14,8 @@ public class IPokemonFactoryTest {
      private Pokemon pok2;
 
 //     IPokemonFactory iPokemonFactory = mock(IPokemonFactory.class);
-     IPokemonFactory iPokemonFactory = new IPokemonFactoryImpl();
+//     IPokemonFactory iPokemonFactory = new IPokemonFactoryImpl();
+     IPokemonFactory iPokemonFactory = new RocketPokemonFactory();
      //IPokemonMetadataProvider iPokemonMetadataProvider = new IPokemonMetadataProviderImpl();
 
      @Before
