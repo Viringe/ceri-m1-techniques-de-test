@@ -30,7 +30,7 @@ public class IPokemonFactoryTest {
 
      @Test
      public void createPokemonTest1() throws PokedexException {
-          Pokemon pok = iPokemonFactory1.createPokemon(0,613,64,4000,4);
+          Pokemon pok = iPokemonFactory1.createPokemon(1,613,64,4000,4);
 
           assertEquals(pok1.getIndex(),pok.getIndex());
           assertEquals(pok1.getName(),pok.getName());
