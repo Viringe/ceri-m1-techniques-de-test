@@ -1,0 +1,10 @@
+On peut voir en premier lieu en effectuant de simples tests de création de Pokémon que les id des Pokémon que l'on nous avait fourni lors des précédents TP ne fonctionne plus. Il y a aussi la gestion de l'erreur en cas d'insertion d'un Pokémon avec un id négatif, ici on ne retournera aucune erreur, mais le Pikachu de Sacha.
+L'un des autres problèmes que l'on va avoir ici est liés au stat du Pokémon. Avant ce TP nous avions une idée de leur génération ainsi :
+    Il y a une borne entre 0 et 15 pour l'attaque, la défense, et d’endurance.
+    Niveau pour une statistique = Niveau de base de l’espèce + Niveau de l’individu
+
+Or ici on peut voir facilement qu'il s'agit d'une génération ou 100 dans le cadre d'un Pokémon avec l'id inférieur à 0.
+
+On peut noter l'apparition de MISSINGNO pour le Pokémon à l'id 0 qui est en réalité une levée d'exception en cas d'accès a un Pokémon non existant.
+
+J'ai pu relever des erreurs dans mes tests, comme le test d'un id négatif.
